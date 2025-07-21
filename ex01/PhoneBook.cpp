@@ -11,11 +11,10 @@ void PhoneBook::addContact(Contact contact) {
         totalContacts++;
 }
 
-Contact PhoneBook::getContact(int index) const {
-    if (index < 0 || index >= 8) {
+Contact PhoneBook::getContact(int idx) const {
+    if (idx < 0 || idx >= totalContacts)
         throw std::out_of_range("Invalid index");
-    }
-    return contacts[index];
+    return contacts[idx];
 }
 
 
