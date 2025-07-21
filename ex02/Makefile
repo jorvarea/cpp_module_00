@@ -2,7 +2,7 @@
 ##                               COMPILATION INFO                             ##
 ################################################################################
 
-NAME = phonebook
+NAME = account_tests
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
@@ -11,7 +11,7 @@ RM = rm -rf
 ##                              SOURCES AND OBJECTS                           ##
 ################################################################################
 
-SRC = main.cpp PhoneBook.cpp Contact.cpp
+SRC = tests.cpp Account.cpp
 
 OBJECTS = $(SRC:.cpp=.o)
 
