@@ -1,10 +1,18 @@
-#include <iostream>
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
+#include <iostream>
+
+std::string getInput(const std::string &prompt) {
+  std::string input;
+  while (input.empty()) {
+    std::cout << prompt;
+    std::getline(std::cin, input);
+  }
+  return input;
+}
 
 int main() {
     std::string command;
-    std::string input;
     std::string index_str;
     int index;
     PhoneBook phoneBook;
@@ -22,36 +30,11 @@ int main() {
     while (command != "EXIT") {
         if (command == "ADD") {
             std::cout << "Please enter the contact information: " << std::endl;
-            input = "";
-            while (input.empty()) {
-                std::cout << "First Name: ";
-                std::getline(std::cin, input);
-            }
-            firstName = input;
-            input = "";
-            while (input.empty()) {
-                std::cout << "Last Name: ";
-                std::getline(std::cin, input);
-            }
-            lastName = input;
-            input = "";
-            while (input.empty()) {
-                std::cout << "Nickname: ";
-                std::getline(std::cin, input);
-            }
-            nickname = input;
-            input = "";
-            while (input.empty()) {
-                std::cout << "Phone Number: ";
-                std::getline(std::cin, input);
-            }
-            phoneNumber = input;
-            input = "";
-            while (input.empty()) {
-                std::cout << "Darkest Secret: ";
-                std::getline(std::cin, input);
-            }
-            darkestSecret = input;
+            firstName = getInput("First Name: ");
+            lastName = getInput("Last Name: ");
+            nickname = getInput("Nickname: ");
+            phoneNumber = getInput("Phone Number: ");
+            darkestSecret = getInput("Darkest Secret: ");
             Contact contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
             phoneBook.addContact(contact);
         } else if (command == "SEARCH") {
