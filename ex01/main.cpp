@@ -15,21 +15,21 @@ int main() {
     std::cout << "Welcome to the PhoneBook!" << std::endl;
     std::cout << "-------------------------------------------" << std::endl;
     std::cout << "Please enter a command (ADD, SEARCH, EXIT): ";
-    std::cin >> command;
+    std::getline(std::cin, command);
     std::cout << "-------------------------------------------" << std::endl;
     while (command != "EXIT") {
         if (command == "ADD") {
             std::cout << "Please enter the contact information: " << std::endl;
             std::cout << "First Name: ";
-            std::cin >> firstName;
+            std::getline(std::cin, firstName);
             std::cout << "Last Name: ";
-            std::cin >> lastName;
+            std::getline(std::cin, lastName);
             std::cout << "Nickname: ";
-            std::cin >> nickname;
+            std::getline(std::cin, nickname);
             std::cout << "Phone Number: ";
-            std::cin >> phoneNumber;
+            std::getline(std::cin, phoneNumber);
             std::cout << "Darkest Secret: ";
-            std::cin >> darkestSecret;
+            std::getline(std::cin, darkestSecret);
             Contact contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
             phoneBook.addContact(contact);
         } else if (command == "SEARCH") {
