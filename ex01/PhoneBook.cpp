@@ -4,7 +4,7 @@
 
 PhoneBook::PhoneBook() : index(0), totalContacts(0) {}
 
-void PhoneBook::addContact(Contact contact) {
+void PhoneBook::addContact(const Contact &contact) {
     contacts[index % 8] = contact;
     index = (index + 1) % 8;
     if (totalContacts < 8)
