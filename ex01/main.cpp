@@ -4,6 +4,7 @@
 
 int main() {
     std::string command;
+    std::string input;
     std::string index_str;
     int index;
     PhoneBook phoneBook;
@@ -21,16 +22,36 @@ int main() {
     while (command != "EXIT") {
         if (command == "ADD") {
             std::cout << "Please enter the contact information: " << std::endl;
-            std::cout << "First Name: ";
-            std::getline(std::cin, firstName);
-            std::cout << "Last Name: ";
-            std::getline(std::cin, lastName);
-            std::cout << "Nickname: ";
-            std::getline(std::cin, nickname);
-            std::cout << "Phone Number: ";
-            std::getline(std::cin, phoneNumber);
-            std::cout << "Darkest Secret: ";
-            std::getline(std::cin, darkestSecret);
+            input = "";
+            while (input.empty()) {
+                std::cout << "First Name: ";
+                std::getline(std::cin, input);
+            }
+            firstName = input;
+            input = "";
+            while (input.empty()) {
+                std::cout << "Last Name: ";
+                std::getline(std::cin, input);
+            }
+            lastName = input;
+            input = "";
+            while (input.empty()) {
+                std::cout << "Nickname: ";
+                std::getline(std::cin, input);
+            }
+            nickname = input;
+            input = "";
+            while (input.empty()) {
+                std::cout << "Phone Number: ";
+                std::getline(std::cin, input);
+            }
+            phoneNumber = input;
+            input = "";
+            while (input.empty()) {
+                std::cout << "Darkest Secret: ";
+                std::getline(std::cin, input);
+            }
+            darkestSecret = input;
             Contact contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
             phoneBook.addContact(contact);
         } else if (command == "SEARCH") {
