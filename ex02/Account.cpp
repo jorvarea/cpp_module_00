@@ -20,7 +20,7 @@ Account::Account(void) : _accountIndex(0), _amount(0), _nbDeposits(0), _nbWithdr
     _nbAccounts++;
 }
 
-Account::Account(int initial_deposit) : _amount(initial_deposit) {
+Account::Account(int initial_deposit) {
     _accountIndex = _nbAccounts++;
     _amount = initial_deposit;
     _nbDeposits = 0;
