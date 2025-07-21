@@ -2,11 +2,13 @@
 #include <iostream>
 #include <iomanip>
 
-PhoneBook::PhoneBook() : index(0) {}
+PhoneBook::PhoneBook() : index(0), totalContacts(0) {}
 
 void PhoneBook::addContact(Contact contact) {
     contacts[index % 8] = contact;
     index = (index + 1) % 8;
+    if (totalContacts < 8)
+        totalContacts++;
 }
 
 Contact PhoneBook::getContact(int index) const {
@@ -29,17 +31,14 @@ void PhoneBook::printContacts() const {
     std::cout << std::setw(10) << formatField("Index") << "|";
     std::cout << std::setw(10) << formatField("First Name") << "|";
     std::cout << std::setw(10) << formatField("Last Name") << "|";
-    std::cout << std::setw(10) << formatField("Nickname") << "|";
-    std::cout << std::setw(10) << formatField("Phone Number") << "|";
-    std::cout << std::setw(10) << formatField("Darkest Secret") << "|";
+    std::cout << std::setw(10) << formatField("Nickname");
     std::cout << std::endl;
     
-    for (int i = 0; i < index; i++) {
+    for (int i = 0; i < totalContacts; i++) {
         std::cout << std::setw(10) << i << "|";
         std::cout << std::setw(10) << formatField(contacts[i].getFirstName()) << "|";
         std::cout << std::setw(10) << formatField(contacts[i].getLastName()) << "|";
-        std::cout << std::setw(10) << formatField(contacts[i].getNickname()) << "|";
-        std::cout << std::setw(10) << formatField(contacts[i].getPhoneNumber()) << "|";
-        std::cout << std::setw(10) << formatField(contacts[i].getDarkestSecret()) << std::endl;
+        std::cout << std::setw(10) << formatField(contacts[i].getNickname());
+        std::cout << std::endl;
     }
 }
