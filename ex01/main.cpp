@@ -48,7 +48,7 @@ int main() {
         }
         std::cout << "-------------------------------------------" << std::endl;
         std::cout << "Please enter a command (ADD, SEARCH, EXIT): ";
-        std::cin >> command;
+        std::getline(std::cin, command);
         std::cout << "-------------------------------------------" << std::endl;
     }
     if (command == "EXIT") {
