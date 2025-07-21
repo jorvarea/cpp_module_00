@@ -5,9 +5,9 @@
 
 class PhoneBook {
 private:
-    Contact contacts[8];
-    int index;
-    int totalContacts;
+    Contact _contacts[8];
+    int _index;
+    int _totalContacts;
 
     std::string formatField(const std::string& str) const;
 

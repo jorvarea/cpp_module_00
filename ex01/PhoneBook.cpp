@@ -2,19 +2,19 @@
 #include <iostream>
 #include <iomanip>
 
-PhoneBook::PhoneBook() : index(0), totalContacts(0) {}
+PhoneBook::PhoneBook() : _index(0), _totalContacts(0) {}
 
 void PhoneBook::addContact(const Contact &contact) {
-    contacts[index % 8] = contact;
-    index = (index + 1) % 8;
-    if (totalContacts < 8)
-        totalContacts++;
+    _contacts[_index % 8] = contact;
+    _index = (_index + 1) % 8;
+    if (_totalContacts < 8)
+        _totalContacts++;
 }
 
 Contact PhoneBook::getContact(int idx) const {
-    if (idx < 0 || idx >= totalContacts)
+    if (idx < 0 || idx >= _totalContacts)
         throw std::out_of_range("Invalid index");
-    return contacts[idx];
+    return _contacts[idx];
 }
 
 
@@ -32,10 +32,10 @@ void PhoneBook::printContacts() const {
               << std::setw(10) << formatField("Last Name") << "|"
               << std::setw(10) << formatField("Nickname")  << std::endl;
 
-    for (int i = 0; i < totalContacts; ++i) {
+    for (int i = 0; i < _totalContacts; ++i) {
         std::cout << std::setw(10) << i                                            << "|"
-                  << std::setw(10) << formatField(contacts[i].getFirstName()) << "|"
-                  << std::setw(10) << formatField(contacts[i].getLastName())  << "|"
-                  << std::setw(10) << formatField(contacts[i].getNickname())  << std::endl;
+                  << std::setw(10) << formatField(_contacts[i].getFirstName()) << "|"
+                  << std::setw(10) << formatField(_contacts[i].getLastName())  << "|"
+                  << std::setw(10) << formatField(_contacts[i].getNickname())  << std::endl;
     }
 }

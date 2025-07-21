@@ -2,25 +2,25 @@
 #include <iostream>
 
 Contact::Contact()
-    : firstName(""), lastName(""), nickname(""), phoneNumber(""),
-      darkestSecret("") {}
+    : _firstName(""), _lastName(""), _nickname(""), _phoneNumber(""),
+      _darkestSecret("") {}
 
 Contact::Contact(std::string firstName, std::string lastName,
                  std::string nickname, std::string phoneNumber,
                  std::string darkestSecret)
-    : firstName(firstName), lastName(lastName), nickname(nickname),
-      phoneNumber(phoneNumber), darkestSecret(darkestSecret) {}
+    : _firstName(firstName), _lastName(lastName), _nickname(nickname),
+      _phoneNumber(phoneNumber), _darkestSecret(darkestSecret) {}
 
-std::string Contact::getFirstName() const { return firstName; }
-std::string Contact::getLastName() const { return lastName; }
-std::string Contact::getNickname() const { return nickname; }
-std::string Contact::getPhoneNumber() const { return phoneNumber; }
-std::string Contact::getDarkestSecret() const { return darkestSecret; }
+std::string Contact::getFirstName() const { return _firstName; }
+std::string Contact::getLastName() const { return _lastName; }
+std::string Contact::getNickname() const { return _nickname; }
+std::string Contact::getPhoneNumber() const { return _phoneNumber; }
+std::string Contact::getDarkestSecret() const { return _darkestSecret; }
 
 void Contact::printContact() const {
-  std::cout << "First Name: " << firstName << std::endl;
-  std::cout << "Last Name: " << lastName << std::endl;
-  std::cout << "Nickname: " << nickname << std::endl;
-  std::cout << "Phone Number: " << phoneNumber << std::endl;
-  std::cout << "Darkest Secret: " << darkestSecret << std::endl;
+  std::cout << "First Name: " << _firstName << std::endl;
+  std::cout << "Last Name: " << _lastName << std::endl;
+  std::cout << "Nickname: " << _nickname << std::endl;
+  std::cout << "Phone Number: " << _phoneNumber << std::endl;
+  std::cout << "Darkest Secret: " << _darkestSecret << std::endl;
 }
