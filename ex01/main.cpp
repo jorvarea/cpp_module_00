@@ -4,6 +4,7 @@
 
 int main() {
     std::string command;
+    std::string index_str;
     int index;
     PhoneBook phoneBook;
     std::string firstName;
@@ -35,11 +36,14 @@ int main() {
         } else if (command == "SEARCH") {
             phoneBook.printContacts();
             std::cout << "Please enter the index of the contact to search: ";
-            std::cin >> index;
+            std::getline(std::cin, index_str);
             try {
+                index = std::stoi(index_str);
                 phoneBook.getContact(index).printContact();
             } catch (const std::out_of_range &e) {
                 std::cout << "Index out of range" << std::endl;
+            } catch (const std::invalid_argument &e) {
+                std::cout << "Invalid index" << std::endl;
             }
         }
         std::cout << "-------------------------------------------" << std::endl;
