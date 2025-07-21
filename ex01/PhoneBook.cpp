@@ -5,13 +5,8 @@
 PhoneBook::PhoneBook() : index(0) {}
 
 void PhoneBook::addContact(Contact contact) {
-    if (index < 8) {
-        contacts[index] = contact;
-        index++;
-    } else {
-        contacts[0] = contact;
-        index = 1;
-    }
+    contacts[index % 8] = contact;
+    index = (index + 1) % 8;
 }
 
 Contact PhoneBook::getContact(int index) const {
