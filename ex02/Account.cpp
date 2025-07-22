@@ -1,5 +1,6 @@
 #include "Account.hpp"
 #include <iostream>
+#include <ctime>
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
@@ -11,7 +12,7 @@ int	Account::getTotalAmount(void) { return _totalAmount; }
 int	Account::getNbDeposits(void) { return _totalNbDeposits; }
 int	Account::getNbWithdrawals(void) { return _totalNbWithdrawals; }
 
-void	Account::displayAccountsInfos(void) {
+void Account::displayAccountsInfos(void) {
     _displayTimestamp();
     std::cout << "accounts:" << getNbAccounts() << ";total:" << getTotalAmount() << ";deposits:" << getNbDeposits() << ";withdrawals:" << getNbWithdrawals() << std::endl;
 }
@@ -61,15 +62,20 @@ bool	Account::makeWithdrawal(int withdrawal) {
     return true;
 }
 
-int	Account::checkAmount(void) const {
+int Account::checkAmount(void) const {
     return _amount;
 }
 
-void	Account::displayStatus(void) const {
+void Account::displayStatus(void) const {
     _displayTimestamp();
     std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
 
-void	Account::_displayTimestamp(void) {
-    std::cout << "[" << std::time(NULL) << "] ";
+void Account::_displayTimestamp(void) {
+    std::time_t now = std::time(NULL);
+    std::tm *ltm = std::localtime(&now);
+    char buffer[20];
+
+    std::strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S]", ltm);
+    std::cout << buffer << " ";
 }
